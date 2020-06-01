@@ -93,3 +93,30 @@ function decodeWords(phrase) {
 }
 
 console.log(decodeWords('craft block argon meter bells brown croon droop'));
+
+
+function createCharacter(name, nickname, race, origin, attack, defense) {
+
+    return {
+        name,
+        nickname,
+        race,
+        origin,
+        attack,
+        defense,
+
+        describe: function() {
+            console.log(`${name} is a ${race} from ${origin}`);
+        },
+
+        evaluateFight(opponent) {
+            let x = this.attack - opponent.defense;
+            let y = opponent.attack - this.defense;
+        }
+
+    };
+}
+
+const example = createCharacter('seyi','shay','human','earth', 10, 12);
+
+example.describe();
