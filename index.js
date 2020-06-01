@@ -63,3 +63,33 @@ object3.forEach(element => {
         console.log(`${element.jobTitle} ${element.name} reports to ${element.boss}.`);
     }
 });
+
+let encoded = {
+    a: 2,
+    b: 3,
+    c: 4,
+    d: 5,
+};
+
+function decode(word) {
+
+    if (Object.keys(encoded).includes(word[0])) {
+        return word[encoded[word[0]] - 1];
+    }
+        return ' ';
+    
+}
+
+console.log(decode('cycle'));
+
+function decodeWords(phrase) {
+    let ans = '';
+    let copy = phrase.split(' ');
+
+    copy.forEach(word => {
+        ans = ans.concat(decode(word));
+    });
+    return ans;
+}
+
+console.log(decodeWords('craft block argon meter bells brown croon droop'));
