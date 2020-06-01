@@ -112,11 +112,64 @@ function createCharacter(name, nickname, race, origin, attack, defense) {
         evaluateFight(opponent) {
             let x = this.attack - opponent.defense;
             let y = opponent.attack - this.defense;
+
+            if (opponent.defense > this.attack) {
+                y = 0;
+            }
+
+            if (this.defense > opponent.attack) {
+                x = 0;
+            }
+
+            console.log(`Your opponent takes ${x} damage and you recieve ${y} damage.`);
         }
 
     };
 }
 
-const example = createCharacter('seyi','shay','human','earth', 10, 12);
 
-example.describe();
+
+
+let characters = [
+    gandalf = createCharacter("Gandalf the White", "gandalf", "Wizard", "Middle Earth", 10, 6),
+    bilbo = createCharacter("Bilbo Baggins", "bilbo", "Hobbit", "The Shire", 2, 1 ),
+    frodo = createCharacter("Frodo Baggins", "frodo", "Hobbit", "The Shire", 3, 2),
+    aragorn = createCharacter("Aragorn son of Arathorn", "aragorn", "Man", "Dunnedain", 6, 8),
+    legolas = createCharacter("Legolas", "legolas", "Elf", "Woodland Realm", 8, 5),
+
+];
+
+characters.push(arwen = createCharacter("Arwen Undomiel","arwen", "Half-Elf", "Rivendell"));
+
+characters.find(found => {
+    return found.nickname === 'aragorn';
+}).describe();
+
+let x = characters.filter(character => {
+    return character.race === 'Hobbit';
+});
+
+console.log(x);
+
+x = characters.filter(character => {
+    return character.attack > 5;
+});
+
+console.log(x);
+
+
+
+
+// ===============================================================================================
+// | Name                      | Nickname    | Race       | Origin         | Attack   | Defense  |
+// -----------------------------------------------------------------------------------------------
+// | "Gandalf the White", "gandalf", "Wizard", "Middle Earth", 10, 6        |
+// -----------------------------------------------------------------------------------------------
+// | "Bilbo Baggins", "bilbo", "Hobbit", "The Shire", 2, 1        |
+// -----------------------------------------------------------------------------------------------
+// | "Frodo Baggins", "frodo", "Hobbit", "The Shire", 3, 2        |
+// -----------------------------------------------------------------------------------------------
+// | "Aragorn son of Arathorn", "aragorn", "Man", "Dunnedain", 6, 8        |
+// -----------------------------------------------------------------------------------------------
+// | "Legolas", "legolas", "Elf", "Woodland Realm", 8, 5        |
+// -----------------------------------------------------------------------------------------------
