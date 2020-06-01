@@ -33,20 +33,33 @@ let object3 = [
     {
         name: "Abdu",
         jobTitle: "Engineer",
+        boss: "Steph",
     },
 
     {
         name: "Seyi",
-        jobTitle: "Pair"
+        jobTitle: "Pair",
+        boss: "Steph",
     },
 
     {
         name: "Jenna",
-        jobTitle: "Intern"
+        jobTitle: "Intern",
+        boss: "Steph",
     },
+
+    {
+        name: "Steph",
+        jobTitle: "Owner"
+    }
 ];
 
 
 object3.forEach(element => {
-    console.log(element);
+
+    if (element.boss === undefined) {
+        console.log(`${element.jobTitle} ${element.name} doesn't report to anybody.`);
+    } else {
+        console.log(`${element.jobTitle} ${element.name} reports to ${element.boss}.`);
+    }
 });
